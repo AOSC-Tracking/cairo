@@ -1971,7 +1971,9 @@ _cairo_ft_options_merge (cairo_ft_options_t *options,
 	options->base.subpixel_order = other->base.subpixel_order;
     }
 
-    if (options->base.hint_style == CAIRO_HINT_STYLE_DEFAULT)
+    options->base.hint_style = CAIRO_HINT_STYLE_DEFAULT;
+
+    if (other->base.hint_style != CAIRO_HINT_STYLE_DEFAULT)
 	options->base.hint_style = other->base.hint_style;
 
     if (other->base.hint_style == CAIRO_HINT_STYLE_NONE)
