@@ -834,6 +834,9 @@ _cairo_bentley_ottmann_tessellate_boxes (const cairo_boxes_t *in,
 	for (i = 0; i < chunk->count; i++) {
 	    int h;
 
+	    if (box[i].p1.y == box[i].p2.y)
+	      continue;
+
 	    if (box[i].p1.x < box[i].p2.x) {
 		rectangles[j].left.x = box[i].p1.x;
 		rectangles[j].left.dir = 1;
